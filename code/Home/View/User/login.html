@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>{$result.fname} | 登录</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="alternate icon" type="image/png" href="__ROOT__/Common/assets/i/favicon.png">
+  <link rel="stylesheet" href="__ROOT__/Common/assets/css/amazeui.min.css"/>
+  <style>
+    .header {
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 200%;
+      color: #333;
+      margin-top: 30px;
+    }
+    .header p {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<header data-am-widget="header" class="am-header am-header-default">
+  <div class="am-header-left am-header-nav">
+    <a class="" onclick="history.back(-1)">
+      <span class="am-header-nav-title">返回</span>
+      <i class="am-header-icon am-icon-mail-reply"></i>
+    </a>
+  </div>
+  <h1 class="am-header-title">{$result.fname}</h1>
+  <div class="am-header-right am-header-nav">
+    <a href="{:U('register')}" class="">
+      <span class="am-header-nav-title">没有账号？</span>
+      <i class="am-header-icon am-icon-uxer-plus"></i>
+    </a>
+  </div>
+<div class="am-g">
+  <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+    <h3>登录</h3>
+    <hr>
+      <!--<figure data-am-widget="figure" class="am am-figure am-figure-default "
+  data-am-figure="{  pureview: 'true' }">
+    <img src="__ROOT__/public/{$result.small_img}" data-rel="__ROOT__/public/{$result.small_img}"/>-->
+</figure>
+
+    <form method="post" class="am-form" action="__SELF__">
+      <label for="email">邮箱:</label>
+      <input type="email" name="email" id="email" value="">
+      <br>
+      <label for="password">密码:</label>
+      <input type="password" name="password" id="password" value="">
+      <br>
+      <label for="remember-me">
+        <input id="remember-me" type="checkbox">
+        记住密码
+      </label>
+      <br />
+      <div class="am-cf">
+        <input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm am-fl">
+        <!--<input type="submit" name="" value="忘记密码 ^_^? " class="am-btn am-btn-default am-btn-sm am-fr">-->
+      </div>
+    </form>
+    <hr>
+      <p>{$result.footer1}<br><small>{$result.footer2}</small></p>
+  </div>
+</div>
+<script src="__ROOT__/Common/assets/js/jquery.min.js"></script>
+<script src="__ROOT__/Common/assets/js/amazeui.min.js"></script>
+</body>
+</html>

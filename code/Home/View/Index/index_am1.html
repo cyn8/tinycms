@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+    <title>{$result.fname}</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="alternate icon" type="image/png" href="__ROOT__/Common/assets/i/favicon.png">
+  <link rel="stylesheet" href="__ROOT__/Common/assets/css/amazeui.min.css"/>
+  <style>
+
+
+    .get-title {
+      font-size: 200%;
+      border: 2px solid #fff;
+      padding: 20px;
+      display: inline-block;
+    }
+
+    .get-btn {
+      background: #fff;
+    }
+
+    .detail {
+      background: #fff;
+    }
+
+    .detail-h2 {
+      text-align: center;
+      font-size: 150%;
+      margin: 40px 0;
+    }
+
+    .detail-h3 {
+      color: #1f8dd6;
+    }
+
+    .detail-p {
+      color: #7f8c8d;
+    }
+
+    .detail-mb {
+      margin-bottom: 30px;
+    }
+
+    .hope {
+      background: #0bb59b;
+      padding: 50px 0;
+    }
+
+    .hope-img {
+      text-align: center;
+    }
+
+    .hope-hr {
+      border-color: #149C88;
+    }
+
+    .hope-title {
+      font-size: 140%;
+    }
+
+    .about {
+      background: #fff;
+      padding: 40px 0;
+      color: #7f8c8d;
+    }
+
+    .about-color {
+      color: #34495e;
+    }
+
+    .about-title {
+      font-size: 180%;
+      padding: 30px 0 50px 0;
+      text-align: center;
+    }
+
+    .footer p {
+      color: #7f8c8d;
+      margin: 0;
+      padding: 15px 0;
+      text-align: center;
+      background: #2d3e50;
+    }
+  </style>
+</head>
+<body>
+<header class="am-topbar am-topbar-fixed-top">
+  <div class="am-container">
+    <h1 class="am-topbar-brand">
+      <a href="{:U('index')}">{$result.fname}</a>
+    </h1>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only"
+            data-am-collapse="{target: '#collapse-head'}"><span class="am-sr-only">导航切换</span> <span
+        class="am-icon-bars"></span></button>
+
+    <div class="am-collapse am-topbar-collapse" id="collapse-head">
+      <ul class="am-nav am-nav-pills am-topbar-nav">
+        <li class="am-active"><a href="__ROOT__">首页</a></li>
+        <li><a href="{:U('shopList')}">商铺列表</a></li>
+        <li class="am-dropdown" data-am-dropdown>
+          <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+            位置信息 <span class="am-icon-caret-down"></span>
+          </a>
+          <ul class="am-dropdown-content">        
+            <li><a href="{:U('location')}">1. 商都位置</a></li>
+            <li><a href="{:U('map')}">2. 您的位置</a></li>
+  
+          </ul>
+        </li>
+      </ul>
+        <if condition="$loginInf.islogin eq 1">
+            <div class="am-topbar-right">
+                <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm" onclick="#">欢迎您，{$loginInf.username}!</button>
+                <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="{:U('User/logout')}"><span class="am-icon-user"></span> 退出登录</a>
+            </div>
+        <else />
+      <div class="am-topbar-right">
+        <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm" onclick="javascript:window.location.href='{:U('User/register')}'"><span class="am-icon-pencil"></span> 注册</button>
+      </div>
+
+      <div class="am-topbar-right">
+        <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm" onclick="javascript:window.location.href='{:U('User/login')}'"><span class="am-icon-user"></span> 登录</button>
+      </div>
+    </div>
+      </if>
+  </div>
+</header>
+
+<div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{}'>
+  <ul class="am-slides">
+    <li>
+      <img src="__ROOT__/public/{$result.img1}">
+    </li>
+    <li>
+      <img src="__ROOT__/public/{$result.img2}">
+    </li>
+    <li>
+      <img src="__ROOT__/public/{$result.img3}">
+    </li>
+    <li>
+      <img src="__ROOT__/public/{$result.img4}">
+    </li>
+  </ul>
+</div>
+
+
+<div class="detail">
+  <div class="am-g am-container">
+    <div class="am-u-lg-12">
+      <h2 class="detail-h2">WE ARE LEADER 华发领航珠海商业!</h2>
+
+      <div class="am-g">
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12 detail-mb">
+
+          <h3 class="detail-h3">
+            <i class="am-icon-mobile am-icon-institution"></i>
+            无与伦比的建筑艺术
+          </h3>
+
+          <p class="detail-p">
+           340米亚洲空前的恢弘天幕 / 近4000平方米水幕电影及大型音乐喷泉组团 / 16万平方米的生态广场 / 超大型水系生态建筑 / 18万平方米的流线空间
+          </p>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12 detail-mb">
+          <h3 class="detail-h3">
+            <i class="am-icon-send am-icon-sm"></i>
+            丰富多元的休闲娱乐
+          </h3>
+
+          <p class="detail-p">
+            中影国际影城华南旗舰店 / 阅.潮精品书店 / 玩具反斗城儿童娱乐 / 悠游堂
+          </p>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12 detail-mb">
+          <h3 class="detail-h3">
+            <i class="am-icon-cutlery am-icon-sm"></i>
+            全球顶级的美食荟萃
+          </h3>
+
+          <p class="detail-p">
+            星巴克咖啡 / 哈根达斯 / 满记甜品 / 汉堡王 / 佳景四季酒家 / 武藏 / 阿苏尔
+          </p>
+        </div>
+        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12 detail-mb">
+          <h3 class="detail-h3">
+            <i class="am-icon-plane am-icon-sm"></i>
+            国际同步的时尚潮流
+          </h3>
+
+          <p class="detail-p">
+            La Galleria / UNIQLO /H&M / MONKI / JUST CAVALLI / DKNY JEANS / TOMMY HILFIGER / ANNA SUI / LOVE MOSCHINO /
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hope">
+  <div class="am-g am-container">
+    <div class="am-u-lg-4 am-u-md-6 am-u-sm-12 hope-img">
+      <img src="__ROOT__/public/{$result.small_img}" alt="" data-am-scrollspy="{animation:'slide-left', repeat: false}">
+      <hr class="am-article-divider am-show-sm-only hope-hr">
+    </div>
+    <div class="am-u-lg-8 am-u-md-6 am-u-sm-12">
+      <h2 class="hope-title">{$result.box_title}</h2>
+
+      <p>
+          {$result.content}
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="about">
+  <div class="am-g am-container">
+    <div class="am-u-lg-12">
+      <h2 class="about-title about-color">华发商都会悉心倾听您的任何建议</h2>
+
+      <div class="am-g">
+        <div class="am-u-lg-6 am-u-md-4 am-u-sm-12">
+          <form class="am-form">
+            <label for="name" class="about-color">您的姓名</label>
+            <input id="name" type="text">
+            <br/>
+            <label for="email" class="about-color">您的手机号码</label>
+            <input id="email" type="email">
+            <br/>
+            <label for="message" class="about-color">您对我们的的建议</label>
+            <input id="message" type="text"> </input>
+            <br/>
+            <button type="submit" class="am-btn am-btn-primary am-btn-sm"><i class="am-icon-check"></i> 提 交</button>
+          </form>
+          <hr class="am-article-divider am-show-sm-only">
+        </div>
+
+        <div class="am-u-lg-6 am-u-md-8 am-u-sm-12">
+          <h4 class="about-color">商家招募</h4>
+
+          <p>珠海华商都诚邀国内外知名品牌的供应商，为广大消费者提供优质，超值的产品和周到的服务。
+珠海华发商都经营品类包括：国内外精品男、女装，餐饮、娱乐等配套类以及家居、数码等。珠海华发商都本着互共赢的原则与广大供应商精诚合作，我们会及时准确地将各种销售信息和用户体验反馈给供应商伙伴，帮助供应商伙伴更好地了解销售状况，市场需求，并及时准确地作出货品调整，从而获得良好的业绩表现。</p>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
+  <a href="#top" title="">
+    <img class="am-gotop-icon-custom" src="http://amazeui.b0.upaiyun.com/assets/i/cpts/gotop/goTop.gif"
+    />
+  </a>
+</div>   
+    
+<footer class="footer">
+    <p>{$result.footer1}<br><small>{$result.footer2}</small></p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__ROOT__/Common/assets/js/polyfill/rem.min.js"></script>
+<script src="__ROOT__/Common/assets/js/polyfill/respond.min.js"></script>
+<script src="__ROOT__/Common/assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__ROOT__/Common/assets/js/jquery.min.js"></script>
+<script src="__ROOT__/Common/assets/js/amazeui.min.js"></script>
+<!--<![endif]-->
+</body>
+</html>

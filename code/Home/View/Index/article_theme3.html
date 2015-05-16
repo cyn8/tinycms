@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="no-transform"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=2.0, user-scalable=1"> -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="layoutmode" content="standard">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="renderer" content="webkit">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+    <script type="text/javascript"> 
+  var duoshuoQuery = {short_name:"drchan"};
+  (function() { var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true; 
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds); })();
+  </script>
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 00px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+h6 {
+	font-size:12px !important;
+}
+</style>
+<link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
+
+<script type="text/javascript" src="../js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="../js/script.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+<title>{$result.shopname} | {$result0.fname}</title>
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header">
+    <h1>{$result.shopname}</h1>
+    <div data-role="navbar">
+      <ul>
+        <li><a href="{:U('index')}" data-icon="home" data-ajax="false">首页</a></li>
+        <li><a href="{:U('shoplist')}" data-icon="arrow-l" data-ajax="false">商铺列表 </a></li>
+      </ul>
+    </div>
+  </div>
+  
+     <div data-role="content" data-theme="c">
+    
+    
+    <ul data-role="listview" >
+    <p><img src="__ROOT__/public/{$result.img}" style="width:100%;" /></p>
+      <li  data-theme="b" >{$result.shopname}</li>
+      <li  data-role="list-divider" data-theme="d">联系方式：{$result.phone}</li>
+      <li  data-role="list-divider" data-theme="d">商铺门号：{$result.shopid}</li>
+      <li  >{$result.introduce}</li>
+      
+    </ul>
+    
+  </div>
+
+    <div class="ds-thread" data-thread-key="{$result.id}" data-limit="5"></div>
+  <div data-role="footer">
+    <h6>{$result0.footer1}</h6>
+    <h6>{$result0.footer2}</h6>
+  </div>
+</div> 
+
+</body>
+</html>

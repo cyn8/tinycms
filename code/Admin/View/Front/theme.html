@@ -1,0 +1,175 @@
+<extend name="Public/base"/>
+
+<block name="title">站点设置</block>
+
+<block name="head0">前台管理</block>
+<block name="head1">主题设置</block>
+
+<block name="body">
+
+<!-- content start -->
+<div class="admin-content">
+
+
+  <div class="am-tabs am-margin" data-am-tabs>
+    <ul class="am-tabs-nav am-nav am-nav-tabs">
+      <li class="am-active"><a href="#tab1">主题设置</a></li>
+      <li><a href="#tab2">编辑当前主题模板</a></li>
+      <li><a href="#tab3">帮助</a></li>
+    </ul>
+
+    <div class="am-tabs-bd">
+      <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+      
+     <div id="load" class="am-padding" style="float:left;"><iframe id="iframe1" frameborder="0" id="doc-widget-frame" src="__ROOT__/index.php/Home/Index/index" style="height:480px;width:320px;box-shadow:0 0 5px 2px rgba(0, 0, 0, 0.1)"></iframe></div>
+
+
+<form class="am-form am-margin" action="__SELF__" method="post" enctype="multipart/form-data" style="float:left;">
+
+          <div class="am-g am-margin-top">
+            
+            <div class="am-u-sm-6">
+                <div class="am-form-group">
+                    <label for="doc-select-1">主页</label>
+                    <select id="doc-select-1" name="index_theme" item="index">
+                        <foreach name="index" item="value" key="key">
+                        <option value="{$value}" <if condition="$result.index_theme eq $value">selected="selected"</if>>{$value}</option>
+                        </foreach>
+                    </select>
+                    <span class="am-form-caret"></span>
+                </div>
+            </div>
+
+              <div class="am-u-sm-6">
+                  <div class="am-form-group">
+                      <label for="doc-select-2">商铺列表</label>
+                      <select id="doc-select-2" name="shoplist_theme" item="shoplist">
+                          <foreach name="shoplist" item="value" key="key">
+                              <option value="{$value}" <if condition="$result.shoplist_theme eq $value">selected="selected"</if>>{$value}</option>
+                          </foreach>
+                      </select>
+                      <span class="am-form-caret"></span>
+                  </div>
+              </div>
+
+              <div class="am-u-sm-6">
+                  <div class="am-form-group">
+                      <label for="doc-select-3">商铺详情</label>
+                      <select id="doc-select-3" name="article_theme" item="article">
+                          <foreach name="article" item="value" key="key">
+                              <option value="{$value}" <if condition="$result.article_theme eq $value">selected="selected"</if>>{$value}</option>
+                          </foreach>
+                      </select>
+                      <span class="am-form-caret"></span>
+                  </div>
+              </div>
+
+
+            <div class="am-u-sm-12">
+
+            </div>
+          
+          </div>
+          
+	
+			<br>
+          <input type="submit" class="am-btn am-btn-primary" value="提交保存">
+          </form>
+
+      </div>
+
+      <div class="am-tab-panel am-fade" id="tab2">
+
+
+          <div class="am-g am-margin-top">
+              <div class="am-u-sm-12">
+                  <div class="am-form-group">
+                      <label for="tpl-select-1">选择要编辑的主题模板</label>
+                      <select id="tpl-select-1" name="theme" item="theme">
+                          <foreach name="result" item="value" key="key">
+                              <if condition="($key eq 'index_theme') or ($key eq 'shoplist_theme') or ($key eq 'article_theme')">
+                              <option value="{$value}">{$value}</option>
+                              </if>
+                          </foreach>
+                      </select>
+                      <span class="am-form-caret"></span>
+                  </div>
+              </div>
+          </div>
+
+        <form class="am-form am-margin" action="__SELF__" method="post" enctype="multipart/form-data" style="float:left;">
+            <div id="load" class="am-padding" style="float:left;"><iframe id="iframe2" frameborder="0" id="doc-widget-frame" src="__ROOT__/admin.php/Front/edit/file/article_theme2" style="height:700px;width:900px;border:none !important;"></iframe></div>
+
+
+
+          </form>
+
+      </div>
+      
+      
+
+      <div class="am-tab-panel am-fade" id="tab3">
+        
+
+
+
+
+          <div class="am-g am-margin-top">
+
+            <div class="am-u-sm-12">
+              <pre>Tips：主题添加
+	将需要添加的主题模板文件，以index_、shoplist_或article_（对应为主页、商铺列表、商铺详情的主题模板文件）为前缀命名，放置到网站根目录下./Home/Index/View内。</pre>
+            </div>
+
+           
+
+          </div>
+		
+
+			<br>
+          
+         
+
+      </div>
+
+      
+      </div>
+
+    
+  </div>
+	
+
+</div>
+<!-- content end -->
+
+
+
+
+
+</block>
+
+<block name="js">
+<script type="text/javascript">
+$(document).ready(function(){
+	init();
+
+	$("select[id^='doc-select-']").change(function(){
+        var item = $(this).attr("item");
+        var value = $(this).val();
+        $("#iframe1").attr("src","__ROOT__/index.php/Home/Index/"+ item +"/theme/" + value);
+    });
+
+    $("select[id^='tpl-select-']").change(function(){
+        var value = $(this).val();
+        $("#iframe2").attr("src","__ROOT__/admin.php/Front/edit/file/" + value);
+    });
+	
+	function init(){
+		var init = $("select[id=tpl-select-1]").val();
+		$("#iframe2").attr("src","__ROOT__/admin.php/Front/edit/file/" + init);
+	}
+	
+});
+</script>
+
+</block>

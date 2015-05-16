@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>商铺列表</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="no-transform"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=2.0, user-scalable=1"> -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="layoutmode" content="standard">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="renderer" content="webkit">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<link rel="stylesheet" type="text/css" href="http://mo.faidns.com/css/base.min.css?v=201410201736" title="default" />
+<link rel="stylesheet" id="mobiStyleTemplateCss" type="text/css" href="http://mo.faidns.com/css/template/104.min.css?v=201410201736"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- //输出模块样式css -->
+<style id='mobiStyleModule'>
+</style>
+<style id='mobiStyleNav' type='text/css'>
+</style>
+
+<style id="webBodyBackgroundStyle">
+#g_web{background:none;}
+#webContainerBox{background:none;}
+#webBodyBackground{/*background:url(http://mo.faidns.com/image/background/1.jpg);*/ background-color:#f5f5f5; background-size:100%;}
+</style>
+
+<style id='mobiCubeStyleModule'>
+</style>
+
+<!-- 系统特殊隐藏栏目隐藏头部、banner -->
+
+
+</head>
+<body id="g_body" class="g_locale2052">
+	
+	
+
+
+
+
+
+
+
+
+	
+	<div id="g_web" class="g_web">
+		<!-- this is loading  -->
+		<div id="webLoading" class="loading">
+			<div id="splashscreen" class='splashscreen ui-loader'>
+			    <span class='ui-icon ui-icon-loading spin'></span>
+			</div>
+	    </div>
+	    <div id="webTopBox" class="webTopBox">
+	    	<div id="webTop" class="webTop" >
+	    		
+				
+	    	</div>
+	    </div>
+		<div id="webHeaderBox" class="webHeaderBox"  >
+			
+			<div id="webHeader" class="webHeader webHeaderBg">
+				<div id='header' class='header'><div class='navButton'><div class='navButtonPanel'></div><div class='menuNav'><div class='menuNavTip'></div></div></div><span class='pageTitle' id='pageTitle'>商铺列表</span><span class='pageLogo ' style=' display:none; ' id='pageLogo'></span></div><div id='navbar' class='navbar navBaseIcon'>
+<div id='navbarList' class='navbarList'><div id='itemSep_3' class='itemSep'></div><div id='navItem_3' class='navItem navItem_3 itemSelected'><a href='{:U('index')}' _colid='3' id='navbar_3'><span class='navItemIcon'></span><span class='navItemName'>返回首页</span></a></div></div><div class='navLeft'></div><div class='navRight'></div></div>
+
+			</div>
+			
+	
+			
+			
+		</div>
+		
+		<div id="webBannerBox" class="webBannerBox">
+			
+				
+
+			
+			
+			<div id='webBanner' style='display:none;' ><div id='bannerSwipe' class='swipe'><div class='bannerSwipeContainer defaultBanner'></div></div></div>
+		</div>
+		<div id="webContainerBox" class="webContainerBox">
+			<div id="webModuleContainer" class="webModuleContainer">
+					<div id='module302'  class='form Handle' _autoHeight='1'><div   class='formBannerTitle formBannerTitle302'><div class='titleLeft titleLeft302'>
+</div>
+<div class='titleCenter titleCenter302'>
+<div class='titleText titleText302'><div class='titleTextIcon'>&nbsp;</div><div class='textContent'>商铺信息</div></div><div class='formBannerMore formBannerMore302'><a class='titleMoreLink titleMoreLink302' href=/nr.jsp?moduleId=302><span class='titleMoreIcon titleMoreIcon302'>&nbsp;</span></a></div></div>
+<div class='titleRight titleRight302'>
+</div>
+</div>
+<div class='formMiddle formMiddle302'><div class='middleLeft middleLeft302'>
+</div>
+<div class='middleCenter middleCenter302'>
+<div class='formMiddleContent formMiddleContent302 moduleContent'><div class='newsList' id='newsList302'>
+<div topClassName='top1' topSwitch='on' newsId='6' newsName='商铺简介' class='newsLine line  wWLine  firstClass' >
+<div id='lineBody6' class='lineBody'>
+
+</div>
+</div>
+
+
+<foreach name="result" item="value" key="key">
+	<div class='g_separator separatorLine'></div>
+	<div topClassName='top1' topSwitch='on' newsId='2' newsName='商铺图片' class='newsLine line  wWLine '>
+	<div id='lineBody2' class='lineBody'>
+	<a hidefocus='true' href='Article/id/{$value.id}' target=_self>{$value.shopname}</a>
+	</div>
+	</div>
+</foreach>
+
+
+
+
+
+<div class='g_separator separatorLine'></div>
+</div></div></div>
+<div class='middleRight middleRight302'>
+</div>
+</div>
+</div>
+
+			</div>
+		</div>
+		<div id="webFooterBox" class="webFooterBox">
+			<!--图片详情Div -->
+			
+			
+			<div id='webFooter' class='webFooter'>
+			<div id='footer'  class='footer'><div class='bottomdiv'><div class='bottom'><div class='backtop' onclick='Mobi.scrollToTop("webContainerBox")'>top<b></b></div></div></div><div class='technical'><div class='technicalSupport'>{$result0.footer1}<div class='technicalSupport'>{$result0.footer2}</div></div></div>
+				
+<div id="mobiAdvertisement_box" class='mobiAdvertisement_box'>
+
+	
+
+</div>
+
+
+
+			</div>
+				
+			<div id="fullScreenDivCotainer" class='fullScreenDivCotainer'></div>
+			
+		</div>
+		<!--设置网站的背景颜色  start-->
+		<div class="webBackgroundBox"><div id="webBodyBackground" class="webBackground webBackgroundFix"></div></div>
+		<!--设置网站的背景颜色  end-->
+
+		<!-- ------------------------------------------ -->
+	</div>
+
+
+
+
+
+
+<script type="text/javascript" charset="utf-8" src="http://mo.faidns.com/js/jqmobi/jqmobi.min.js?v=201406161748"></script>
+<script type="text/javascript" charset="utf-8" src="http://mo.faidns.com/js/jqmobi/jqmobi_ui.min.js?v=201410201736"></script>
+<script id="mobiOperationJS" type="text/javascript" charset="utf-8" src="http://mo.faidns.com/js/mobi.min.js?v=201410201736"></script>
+
+<script type="text/javascript" src="http://mo.faidns.com/js/locale/2052.min.js?v=201407301053"></script>
+
+
+
+<script type="text/javascript">
+//栏目ID，
+top.window._colId = 3;
+if (typeof Fai == 'undefined'){
+	Fai = {};
+	Fai.top = top;
+}
+
+
+
+
+
+Fai.top._mobiTabInit = {"initParent": 0, "initChild": 0};
+
+Fai.top._siteDomain = 'http://mr1528126360.faisco.cn';
+
+Fai.top._userHostName = 'm.mr1528126360.icoc.cc';
+
+Fai.top._templateFrameId = 104;
+Fai.top._templateLayoutId = 0;
+Fai.top._templateType = 0;
+
+
+
+Fai.top._bannerData = {"h":true,"bn":1,"b":[],"c":[]};  //横幅数据
+Fai.top._bannerChanged = 0;
+Fai.top._mobiColUrlList = [{"url":"/index.jsp","id":3},{"url":"/pr.jsp","id":6},{"url":"/nr.jsp","id":7},{"url":"/mb.jsp","id":9}];
+Fai.top._cusModuleCount = 3; //用来存储自定义栏目数
+
+Fai.top._columnStyleJson = {"s":2};
+
+jm(document).ready(function() {
+	//判断该栏目是否被删除
+	if(jm.isEmptyObject({"aid":4477044,"wid":0,"id":3,"type":3,"flag":0,"name":"返回首页","moduleList":[302],"moduleHidden":[303,301],"updateTime":1413863606000,"authMemberLevelId":0,"url":"/index.jsp","valid":true,"baseSetting":{"c":0,"i":0},"columnStyle":{"s":2},"logo":{"i":"","h":true},"banner":{"h":false,"bn":1,"b":[{"i":"1","t":0}],"c":[]},"independent":false,"allowed":true,"selectable":true})){
+		alert("该栏目已经删除，点击确定后，将返回到首页");
+		document.location.href = "/index.jsp"
+	}
+
+//当前模块 start
+	
+
+	//手机视图初始化函数
+	Mobi.initMobiPage(0);
+	//统计
+	//Mobi.statisticalMobiVisitors({sc:0, rf:""});
+
+     // 取统计数据
+    if(true)
+    {
+     	 
+
+	      Mobi.statisticalMobiVisitors({colId:3, pdId:-1, ndId:-1, sc:0, rf:""});
+     }
+
+	//形象首页
+
+
+	Mobi.manageFaiscoAd();
+
+
+	if(false){
+		Mobi.ing("",true);
+	}	
+});
+</script>
+
+</body>
+</html>

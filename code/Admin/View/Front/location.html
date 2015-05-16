@@ -1,0 +1,72 @@
+<extend name="Public/base"/>
+
+<block name="title">位置设置</block>
+
+<block name="head0">前台管理</block>
+<block name="head1">位置设置</block>
+
+
+<block name="body">
+
+<div id="load" class="am-padding" style="float:left;"><iframe frameborder="0" id="doc-widget-frame" src="__ROOT__/index.php/Home/Index/location.html" style="height:480px;width:320px;box-shadow:0 0 5px 2px rgba(0, 0, 0, 0.1)"></iframe></div>
+
+
+<form class="am-form am-margin" action="__SELF__" method="post" enctype="multipart/form-data" style="float:left;width:60%">
+
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right">
+              标注点坐标
+            </div>
+            <div class="am-u-sm-4">
+              <input type="text" name="x" class="am-input-sm" name="title" value="{$result.x}">
+             </div>
+             <div class="am-u-sm-4">
+              <input type="text" name="y" class="am-input-sm" name="title" value="{$result.y}">
+            </div>
+            <div class="am-u-sm-6"></div>
+          </div>
+          
+
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right">
+              标注点名称
+            </div>
+            <div class="am-u-sm-8 am-u-end">
+              <input type="text" class="am-input-sm" name="point_name" value="{$result.point_name}">
+            </div>
+          </div>
+			
+		<div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right">
+              标注点信息
+            </div>
+            <div class="am-u-sm-8 am-u-end">
+              <textarea name="point_info">{$result.point_info}</textarea>
+            </div>
+          </div>
+			
+          
+          <div class="am-g am-margin-top">
+          <div class="am-u-sm-2 am-text-right">
+             &nbsp;
+            </div>
+          <div class="am-margin" style="float:left;">
+			<input type="submit" class="am-btn am-btn-success" value="提交保存">
+		  </div>
+		  
+		  <div class="am-margin" style="float:left;">
+			<input type="reset" class="am-btn am-btn-secondary" value="重置表单">
+		  </div>
+		  
+		  <div class="am-margin" style="float:left;">
+		  <a href="http://api.map.baidu.com/lbsapi/getpoint/index.html" target="_blank" class="am-btn am-btn-warning">坐标拾取工具</a>
+		  </div>
+		 
+		 
+		 </form>
+		  
+		  </div>
+		  
+
+        
+</block>

@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+    <title>{$result.shopname} | {$result0.fname}</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="alternate icon" type="image/png" href="__ROOT__/Common/assets/i/favicon.png">
+  <link rel="stylesheet" href="__ROOT__/Common/assets/css/amazeui.min.css"/>
+    <script type="text/javascript"> 
+  var duoshuoQuery = {short_name:"drchan"};
+  (function() { var ds = document.createElement('script');
+  ds.type = 'text/javascript';ds.async = true; 
+  ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+  ds.charset = 'UTF-8'; (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds); })();
+  </script> 
+  <style>
+      .footer p {
+      color: #7f8c8d;
+      margin: 0;
+      padding: 15px 0;
+      text-align: center;
+      background: #2d3e50;
+    }
+  </style>
+  
+  </head>
+  
+  <body>
+  
+<header class="am-topbar am-topbar-fixed-top am-topbar-inverse">
+  <div class="am-container">
+    <h1 class="am-topbar-brand">
+      <a href="{:U('index')}">{$result0.fname}</a>
+    </h1>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only"
+            data-am-collapse="{target: '#collapse-head'}"><span class="am-sr-only">导航切换</span> <span
+        class="am-icon-bars"></span></button>
+
+    <div class="am-collapse am-topbar-collapse" id="collapse-head">
+      <ul class="am-nav am-nav-pills am-topbar-nav">
+        <!--li class="am-active"--><li><a href="{:U('index')}">首页</a></li>
+        <li><a href="{:U('shoplist')}">商铺列表</a></li>
+        <li class="am-dropdown" data-am-dropdown>
+          <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+            更多信息 <span class="am-icon-caret-down"></span>
+          </a>
+          <ul class="am-dropdown-content">
+            <li class="am-dropdown-header">位置</li>
+            <li><a href="{:U('map')}">1. 我的位置</a></li>
+            <li><a href="{:U('location')}">2. 商都位置</a></li>
+            <!--li><a href="#">3. 文字排版</a></li>
+            <li><a href="#">4. 网格系统</a></li-->
+          </ul>
+        </li>
+      </ul>
+	  
+            <if condition="$loginInf.islogin eq 1">
+            <div class="am-topbar-right">
+                <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm" onclick="#">欢迎您，{$loginInf.username}!</button>
+                <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="{:U('User/logout')}"><span class="am-icon-user"></span> 退出登录</a>
+            </div>
+        <else />
+      <div class="am-topbar-right">
+        <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm" onclick="javascript:window.location.href='{:U('User/register')}'"><span class="am-icon-pencil"></span> 注册</button>
+      </div>
+
+      <div class="am-topbar-right">
+        <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm" onclick="javascript:window.location.href='{:U('User/login')}'"><span class="am-icon-user"></span> 登录</button>
+      </div>
+    </div>
+      </if>
+  </div>
+</header>
+
+<!--图片框 
+1写了  <li>  标签就一定要放图片进去，不然大图与缩略图的对应会出现问题 2展示的几张图片要求大小差不多，最起码宽度要相似，不要会把展示框撑大，到小图片时又会露出空白，很难看 3这个图片轮换框貌似好像一定要放够四张图片呀-->
+<!
+<div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{&quot;animation&quot;:&quot;slide&quot;,&quot;controlNav&quot;:&quot;thumbnails&quot;}'>
+  <ul class="am-slides">
+ <figure data-am-widget="figure" class="am am-figure am-figure-default "
+data-am-figure="{  pureview: 'true' }">
+  <img src="__ROOT__/public/{$result.img}" data-rel="__ROOT__/public/{$result.img}"
+   width= "100%" />
+ 
+</figure>
+   
+<!--
+    <li data-thumb="images/5479949d64194.jpg">
+      <img src="images/5479949d64194.jpg">
+    </li>
+	
+    <li data-thumb="images/pic3.gif">
+      <img src="images/pic3.gif">
+    </li>
+	
+    <li data-thumb="images/pic3.gif">
+      <img src="images/pic3.gif">
+    </li>
+    -->
+  </ul>
+</div>
+
+<div data-am-widget="tabs" class="am-tabs am-tabs-d2">
+  <ul class="am-tabs-nav am-cf">
+    <li class="am-active">
+      <a href="[data-tab-panel-0]">商铺简介</a>
+    </li>
+    <li class="">
+      <a href="[data-tab-panel-1]">商家信息</a>
+    </li>
+   <!-- <li class="">
+      <a href="[data-tab-panel-2]">主营项目</a>
+    </li>-->
+  </ul>
+  <div class="am-tabs-bd">
+    <div data-tab-panel-0 class="am-tab-panel am-active">深圳市神舟电脑股份有限公司的前身是深圳市神舟电脑有限公司，成立于2001年，是一家以IT( Information Technology)、IA(Information Application)为主业，以电脑技术开发为核心，集研发、生产、销售为一体的高科技企业。</div>
+    <div
+    data-tab-panel-1 class="am-tab-panel ">
+     <p>商铺类别：{$typeResult.typename}</p>
+	<p>商铺地址：{$result.shopid}</p>
+	<p>商铺电话：{$result.phone}</p>
+
+	</div>
+  <div
+  data-tab-panel-2 class="am-tab-panel ">
+  null
+  </div>
+</div>
+</div>
+
+
+<div data-am-widget="duoshuo" class="am-duoshuo am-duoshuo-default" data-ds-short-name="drchan">
+    <div class="ds-thread" data-thread-key="{$result.id}" data-limit="5"></div>
+</div>
+
+
+
+<div data-am-widget="gotop" class="am-gotop am-gotop-default">
+  <a href="#top" title="回到顶部">
+    <span class="am-gotop-title">回到顶部</span>
+    <i class="am-gotop-icon am-icon-chevron-up"></i>
+  </a>
+</div>
+
+<footer class="footer">
+    <p>{$result0.footer1}<br><small>{$result0.footer2}</small></p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__ROOT__/Common/assets/js/polyfill/rem.min.js"></script>
+<script src="__ROOT__/Common/assets/js/polyfill/respond.min.js"></script>
+<script src="__ROOT__/Common/assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__ROOT__/Common/assets/js/jquery.min.js"></script>
+<script src="__ROOT__/Common/assets/js/amazeui.min.js"></script>
+<!--<![endif]-->
+</body>
+
+</html>

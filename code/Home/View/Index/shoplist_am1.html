@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>商铺列表 | {$result0.title}</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="alternate icon" type="image/png" href="__ROOT__/Common/assets/i/favicon.png">
+  <link rel="stylesheet" href="__ROOT__/Common/assets/css/amazeui.min.css"/>
+  <style>
+    @media only screen and (min-width: 641px) {
+      .am-offcanvas {
+        display: block;
+        position: static;
+        background: none;
+      }
+
+      .am-offcanvas-bar {
+        position: static;
+        width: auto;
+        background: none;
+        -webkit-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+      .am-offcanvas-bar:after {
+        content: none;
+      }
+
+    }
+    
+    @media only screen and (max-width: 640px) {
+      .am-offcanvas-bar .am-nav>li>a {
+        color:#ccc;
+        border-radius: 0;
+        border-top: 1px solid rgba(0,0,0,.3);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05)
+      }
+
+      .am-offcanvas-bar .am-nav>li>a:hover {
+        background: #404040;
+        color: #fff
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-nav-header {
+        color: #777;
+        background: #404040;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+        text-shadow: 0 1px 0 rgba(0,0,0,.5);
+        border-top: 1px solid rgba(0,0,0,.3);
+        font-weight: 400;
+        font-size: 75%
+      }
+
+      .am-offcanvas-bar .am-nav>li.am-active>a {
+        background: #1a1a1a;
+        color: #fff;
+        box-shadow: inset 0 1px 3px rgba(0,0,0,.3)
+      }
+
+      .am-offcanvas-bar .am-nav>li+li {
+        margin-top: 0;
+      }
+    }
+
+    .my-head {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .my-button {
+      position: fixed;
+      top: 0;
+      right: 0;
+      border-radius: 0;
+    }
+    .my-sidebar {
+      padding-right: 0;
+      border-right: 1px solid #eeeeee;
+    }
+
+    .my-footer {
+      border-top: 1px solid #eeeeee;
+      padding: 10px 0;
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<header class="am-topbar am-topbar-fixed-top">
+  <div class="am-container">
+    <h1 class="am-topbar-brand">
+      <a href="{:U('index')}">{$result0.title}</a>
+    </h1>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only"
+            data-am-collapse="{target: '#collapse-head'}"><span class="am-sr-only">导航切换</span> <span
+        class="am-icon-bars"></span></button>
+
+    <div class="am-collapse am-topbar-collapse" id="collapse-head">
+      <ul class="am-nav am-nav-pills am-topbar-nav">
+        <li ><a href="{:U('index')}">首页</a></li>
+        <li class="am-active"><a href="{:U('shopList')}">商铺列表</a></li>
+        <li class="am-dropdown" data-am-dropdown>
+          <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+            位置信息 <span class="am-icon-caret-down"></span>
+          </a>
+          <ul class="am-dropdown-content">
+            <li class="am-dropdown-header">位置</li>
+            <li><a href="{:U('location')}">1. 商都位置</a></li>
+            <li><a href="{:U('map')}">2. 您的位置</a></li>
+  
+          </ul>
+        </li>
+      </ul>
+        
+        
+        <form class="am-topbar-form am-topbar-left am-form-inline" role="search" method="get" action="{:U('shoplist')}">
+      <div class="am-form-group">
+        <input  type="search" class="am-form-field am-input-sm" name="shopname" placeholder="商铺搜索">
+      </div>
+	  <button type="submit" class="am-btn am-btn-default am-btn-sm">搜一搜</button>
+    </form>
+
+           <if condition="$loginInf.islogin eq 1">
+            <div class="am-topbar-right">
+                <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm" onclick="#">欢迎您，{$loginInf.username}!</button>
+                <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="{:U('User/logout')}"><span class="am-icon-user"></span> 退出登录</a>
+            </div>
+        <else />
+      <div class="am-topbar-right">
+        <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm" onclick="javascript:window.location.href='{:U('User/register')}'"><span class="am-icon-pencil"></span> 注册</button>
+      </div>
+
+      <div class="am-topbar-right">
+        <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm" onclick="javascript:window.location.href='{:U('User/login')}'"><span class="am-icon-user"></span> 登录</button>
+      </div>
+    </div>
+      </if>
+  </div>
+</header>
+<!--
+<div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider=''>
+  <ul class="am-slides">
+    <li>
+      <img src="assets/i/examples/js_r2_c2.png">
+    </li>
+    <li>
+      <img src="assets/i/examples/js_r6_c2.png">
+    </li>
+    <li>
+      <img src="assets/i/examples/js_r6_c3.png">
+    </li>
+  </ul>
+</div>
+-->
+ 
+
+	<hr class="am-article-divider"/>
+<div class="am-g am-g-fixed">
+  <div class="am-u-md-9 am-u-md-push-3">
+    
+
+  
+
+<nav data-am-widget="menu" class="am-menu  am-menu-default">
+  <a href="javascript: void(0)" class="am-menu-toggle">
+    <i class="am-menu-toggle-icon am-icon-bars"></i>
+  </a>
+  
+  <ul class="am-menu-nav am-avg-sm-3"><!--一共三列-->
+  
+    <li class="am-parent">
+      <a href="##" class=""><empty name="presentType">分类<else/>{$presentType.typename}</empty></a>
+      <ul class="am-menu-sub am-collapse  am-avg-sm-2 ">
+          
+		<foreach name="typeResult" item="value" key="key">
+        <li class="">
+            <a href="__ROOT__/index.php/Home/Index/shoplist/type/{$value.tid}" >{$value.typename}</a>
+        </li>
+            </foreach>
+          <li class="">
+              <a href="{:U('shoplist')}" ><strong>所有商铺</strong></a>
+        </li>
+          
+        
+      </ul>
+    </li>
+	
+  </ul>
+</nav>
+
+        
+	      
+       
+	 <div data-am-widget="list_news" class="am-list-news am-list-news-default">       
+            
+                <div class="am-list-news-bd">
+    <ul class="am-list">
+        <foreach name="result" item="value" key="key">
+      <!--缩略图在标题左边-->             
+      <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
+        <div class="am-u-sm-4 am-list-thumb">
+          <a href="Article/id/{$value.id}" class="">
+            <img src="__ROOT__/public/{$value.logo}" />
+          </a>
+        </div>
+        <div class=" am-u-sm-8 am-list-main">
+          <h3 class="am-list-item-hd">
+              <a href="__ROOT__/index.php/Home/Index/Article/id/{$value.id}" class="">{$value.shopname}</a>
+          </h3>
+           <div class="am-list-item-text">{$value.introduce}</div>
+            
+            
+        </div>
+          
+      </li>
+	</foreach>
+    </ul>
+  </div>
+</div>
+        </foreach>
+
+        
+     
+
+        
+    </div>
+    
+         <div class="am-u-md-3 am-u-md-pull-9 my-sidebar">
+    <div class="am-offcanvas" id="sidebar">
+      <div class="am-offcanvas-bar">
+          <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd">
+          <p><span class="am-icon-bookmark"></span> 公告</p>
+          <p>预留的推送信息的窗口</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>   
+    
+  </div>
+
+  <center>{$page}</center>
+  
+  
+  <a href="#sidebar" class="am-btn am-btn-sm am-btn-success am-icon-bars am-show-sm-only my-button" data-am-offcanvas><span class="am-sr-only">侧栏导航</span></a>
+
+<footer class="my-footer">
+    <p>{$result0.footer1}<br><small>{$result0.footer2}</small></p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__ROOT__/Common/assets/js/polyfill/rem.min.js"></script>
+<script src="__ROOT__/Common/assets/js/polyfill/respond.min.js"></script>
+<script src="__ROOT__/Common/assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__ROOT__/Common/assets/js/jquery.min.js"></script>
+<script src="__ROOT__/Common/assets/js/amazeui.min.js"></script>
+<!--<![endif]-->
+</body>
+</html>

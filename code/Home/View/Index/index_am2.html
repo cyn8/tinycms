@@ -1,0 +1,387 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>{$result.fname}</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="alternate icon" type="image/png" href="__ROOT__/Common/assets/i/favicon.png">
+  <link rel="stylesheet" href="__ROOT__/Common/assets/css/amazeui.min.css"/>
+  
+  <style>
+    .get {
+      background: #1E5B94;
+      color: #fff;
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    .get-title {
+      font-size: 200%;
+      border: 2px solid #fff;
+      padding: 20px;
+      display: inline-block;
+    }
+
+    .get-btn {
+      background: #fff;
+    }
+
+    .detail {
+      background: #fff;
+    }
+
+    .detail-h2 {
+      text-align: center;
+      font-size: 150%;
+      margin: 40px 0;
+    }
+
+    .detail-h3 {
+      color: #1f8dd6;
+    }
+
+    .detail-p {
+      color: #7f8c8d;
+    }
+
+    .detail-mb {
+      margin-bottom: 30px;
+    }
+
+    .hope {
+      background: #fff37;
+      padding: 50px 0;
+    }
+
+    .hope-img {
+      text-align: center;
+    }
+
+    .hope-hr {
+      border-color: #149C88;
+    }
+
+    .hope-title {
+      font-size: 140%;
+    }
+
+    .about {
+      background: #fff;
+      padding: 40px 0;
+      color: #7f8c8d;
+    }
+
+    .about-color {
+      color: #34495e;
+    }
+
+    .about-title {
+      font-size: 180%;
+      padding: 30px 0 50px 0;
+      text-align: center;
+    }
+
+    .footer p {
+      color: #7f8c8d;
+      margin: 0;
+      padding: 15px 0;
+      text-align: center;
+      background: #2d3e50;
+    }
+	
+	<!--九宫格-->
+	.boxes {
+      width: 300px;
+    }
+
+    .boxes .box {
+      height: 100px;
+      color: #eee;
+      line-height: 100px;
+      text-align: center;
+      font-weight: bold;
+      transition: all .2s ease;
+     }
+
+.boxes .box:hover {
+  font-size: 200%;
+  transform: rotate(180deg);
+}
+
+.box-1 {
+  background-color: #A8FF24;
+}
+
+.box-2 {
+  background-color: #E1E100;
+}
+
+.box-3 {
+  background-color: #FF8040;
+}
+
+
+  </style>
+  
+</head>
+
+<body>
+
+<header class="am-topbar am-topbar-fixed-top am-topbar-inverse">
+
+  <div class="am-container">
+    <h1 class="am-topbar-brand">
+      <a href="{:U('index')}">{$result.fname}</a>
+    </h1>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only"
+            data-am-collapse="{target: '#collapse-head'}"><span class="am-sr-only">导航切换</span> <span
+        class="am-icon-bars"></span></button>
+
+    <div class="am-collapse am-topbar-collapse" id="collapse-head">
+	
+      <ul class="am-nav am-nav-pills am-topbar-nav">
+	  
+        <li class="am-active"><a href="{:U('index')}">首页</a></li>
+		
+        <li><a href="{:U('shopList')}">商铺列表</a></li>
+		
+        <li class="am-dropdown" data-am-dropdown>
+		
+          <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">更多信息 <span class="am-icon-caret-down"></span>
+          </a>
+		  
+          <ul class="am-dropdown-content">
+            <li class="am-dropdown-header">位置</li>
+            <li><a href="{:U('map')}">1. 我的位置</a></li>
+            <li><a href="{:U('location')}">2. 商都位置</a></li>
+            <!--li><a href="#">3. 文字排版</a></li>
+            <li><a href="#">4. 网格系统</a></li-->
+          </ul>
+		  
+        </li>
+		
+      </ul>
+
+        <if condition="$loginInf.islogin eq 1">
+            <div class="am-topbar-right">
+                <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm" onclick="#">欢迎您，{$loginInf.username}!</button>
+                <a class="am-btn am-btn-primary am-topbar-btn am-btn-sm" href="{:U('User/logout')}"><span class="am-icon-user"></span> 退出登录</a>
+            </div>
+        <else />
+      <div class="am-topbar-right">
+        <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm" onclick="javascript:window.location.href='{:U('User/register')}'"><span class="am-icon-pencil"></span> 注册</button>
+      </div>
+
+      <div class="am-topbar-right">
+        <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm" onclick="javascript:window.location.href='{:U('User/login')}'"><span class="am-icon-user"></span> 登录</button>
+      </div>
+    </div>
+      </if>
+    </div>
+</header>
+
+<!--图片框 1展示的几张图片要求大小差不多，最起码宽度要相似，不要会把展示框撑大，到小图片时又会露出空白，很难看-->
+<div data-am-widget="slider" class="am-slider am-slider-default" data-am-slider='{&quot;animation&quot;:&quot;slide&quot;,&quot;slideshow&quot;:false playAfterPaused: 8000}'>
+  <ul class="am-slides">
+    <li>
+      <img src="__ROOT__/public/{$result.img1}">
+      <div class="am-slider-desc">{$result.img1_info}</div>
+    </li>
+    <li>
+      <img src="__ROOT__/public/{$result.img2}">
+      <div class="am-slider-desc">{$result.img2_info}</div>
+    </li>
+    <li>
+      <img src="__ROOT__/public/{$result.img3}">
+      <div class="am-slider-desc">{$result.img3_info}</div>
+    </li>
+   
+  </ul>
+</div>
+
+
+<div class="hope">
+  <div class="am-g am-container">
+    <!--div class="am-u-lg-4 am-u-md-6 am-u-sm-12 hope-img">
+      <img src="images/pic3.gif" alt="" data-am-scrollspy="{animation:'slide-left', repeat: false}">
+      <!--hr class="am-article-divider am-show-sm-only hope-hr">
+    </div-->
+	
+    <div class="am-u-lg-8 am-u-md-6 am-u-sm-12">
+      <h2 class="hope-title">{$result.box_title}</h2>
+      <p>{$result.content}
+      </p>
+    </div>
+	
+  </div>
+</div>
+
+<ul class="am-avg-sm-3 boxes">
+  <li class="box box-1"><a href="{:U('shopList')}">商铺列表</a></li>
+  <li class="box box-2"><a href="{:U('location')}">商都位置</a></li>
+  <li class="box box-3"><a href="{:U('map')}">我的位置</a></li>
+</ul>
+
+<!--四个介绍-->
+<section data-am-widget="accordion" class="am-accordion am-accordion-gapped"
+data-am-accordion='{  }'>
+
+  <dl class="am-accordion-item am-active ">
+    <dt class="am-accordion-title">
+    <p  class=detail-h3>
+       <i class="am-icon-bank am-icon-institution"></i>
+            无与伦比的建筑艺术
+                </p>
+            </dt>
+
+    <dd class="am-accordion-bd am-collapse am-in">
+      <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+      <div class="am-accordion-content"> 
+      <p class="detail-p">
+           340米亚洲空前的恢弘天幕 / 近4000平方米水幕电影及大型音乐喷泉组团 / 16万平方米的生态广场 / 超大型水系生态建筑 / 18万平方米的流线空间
+          </p>
+        </div>
+    </dd>
+  </dl>
+  
+  <dl class="am-accordion-item">
+    <dt class="am-accordion-title">
+    <p  class=detail-h3>
+            <i class="am-icon-paper-plane am-icon-sm"></i>
+            丰富多元的休闲娱乐
+             </p>
+            </dt>
+    
+    <dd class="am-accordion-bd am-collapse ">
+      <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+      <div class="am-accordion-content">
+           <p class="detail-p">
+            中影国际影城华南旗舰店 / 阅.潮精品书店 / 玩具反斗城儿童娱乐 / 悠游堂
+          </p>
+          </div>
+    </dd>
+  </dl>
+  
+  <dl class="am-accordion-item">
+    <dt class="am-accordion-title">
+     <p  class=detail-h3>
+          <i class="am-icon-cutlery am-icon-sm"></i>
+            全球顶级的美食荟萃
+            </p>
+            </dt>
+    <dd class="am-accordion-bd am-collapse ">
+      <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+      <div class="am-accordion-content">
+           <p class="detail-p">
+            星巴克咖啡 / 哈根达斯 / 满记甜品 / 汉堡王 / 必胜客 /许留山
+          </p>
+          </div>
+    </dd>
+  </dl>
+  
+    <dl class="am-accordion-item">
+    <dt class="am-accordion-title">
+     <p  class=detail-h3>
+          <i class="am-icon-plane am-icon-sm"></i>
+            国际同步的时尚潮流
+            </p>
+            </dt>
+    <dd class="am-accordion-bd am-collapse ">
+      <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+      <div class="am-accordion-content">
+           <p class="detail-p">
+           PRADA / LOUIS VUITTON / OMEGA / GUCCI / ROLEX / CHANEL / COACH 
+          </p>
+          </div>
+    </dd>
+  </dl>
+  
+</section>
+
+
+<!-- 按钮触发器， 需要指定 target -->
+<!--button class="am-btn am-btn-primary" data-am-offcanvas="{target: '#doc-oc-demo2', effect: 'push'}">点击显示侧边栏</button>
+
+<!-- 侧边栏内容 -->
+<!--div id="doc-oc-demo2" class="am-offcanvas">
+  <div class="am-offcanvas-bar">
+    <div class="am-offcanvas-content">
+      <p>
+        我不愿让你一个人 <br/>
+        承受这世界的残忍 <br/>
+        我不愿眼泪陪你到 永恒
+      </p>
+    </div>
+  </div>
+</div-->
+
+
+<!--div class="about">
+  <div class="am-g am-container">
+    <div class="am-u-lg-12">
+      <h2 class="about-title about-color">华发商都会悉心倾听您的任何建议</h2>
+
+      <div class="am-g">
+        <div class="am-u-lg-6 am-u-md-4 am-u-sm-12">
+          <form class="am-form">
+            <label for="name" class="about-color">你的姓名</label>
+            <input id="name" type="text">
+            <br/>
+            <label for="email" class="about-color">你的邮箱</label>
+            <input id="email" type="email">
+            <br/>
+            <label for="message" class="about-color">你的留言</label>
+            <textarea id="message"></textarea>
+            <br/>
+            <button type="submit" class="am-btn am-btn-primary am-btn-sm"><i class="am-icon-check"></i> 提 交</button>
+          </form>
+          <hr class="am-article-divider am-show-sm-only">
+        </div-->
+
+       
+          <h4 class="about-color">商家招募</h4>
+
+          <p>
+            珠海华商都诚邀国内外知名品牌的供应商，为广大消费者提供优质，超值的产品和周到的服务。
+珠海华发商都经营品类包括：国内外精品男、女装，餐饮、娱乐等配套类以及家居、数码等。珠海华发商都本着互共赢的原则与广大供应商精诚合作，我们会及时准确地将各种销售信息和用户体验反馈给供应商伙伴，帮助供应商伙伴更好地了解销售状况，市场需求，并及时准确地作出货品调整，从而获得良好的业绩表现。</p>
+          <!--h4 class="about-color">团队介绍</h4>
+
+          <p>AllMobilize Inc 获得了微软创投孵化器的支持，其领先科技已得到全球多家企业及机构的认可与信赖，客户包括全球500强企业、美国政府、国内政府机关、国内外上市公司、以及互联网标准化组织W3C。</p-->
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+<div data-am-widget="gotop" class="am-gotop am-gotop-default">
+  <a href="#top" title="回到顶部">
+    <span class="am-gotop-title">回到顶部</span>
+    <i class="am-gotop-icon am-icon-chevron-up"></i>
+  </a>
+</div>
+
+<footer class="footer">
+    <p>{$result.footer1}<br><small>{$result.footer2}</small></p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__ROOT__/Common/assets/js/polyfill/rem.min.js"></script>
+<script src="__ROOT__/Common/assets/js/polyfill/respond.min.js"></script>
+<script src="__ROOT__/Common/assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__ROOT__/Common/assets/js/jquery.min.js"></script>
+<script src="__ROOT__/Common/assets/js/amazeui.min.js"></script>
+<!--<![endif]-->
+</body>
+</html>

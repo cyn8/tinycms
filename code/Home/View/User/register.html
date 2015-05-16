@@ -1,0 +1,172 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{$result.fname} | 注册页面</title>
+  <meta name="description" content="这是一个 user 页面">
+  <meta name="keywords" content="user">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="__ROOT__/Common/assets/i/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="__ROOT__/Common/assets/i/app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="__ROOT__/Common/assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="__ROOT__/Common/assets/css/admin.css">
+  <style>
+  #loginInfo {
+		float:right;
+		color:red;
+    }
+  </style>
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<header class="am-topbar admin-header">
+  <div class="am-topbar-brand">
+    <strong>{$result.fname}</strong> <small>欢迎您注册{$result.fname}会员</small>
+  </div>
+
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+        <li><a href="{:U('login')}"><span class="am-icon-location-arrow"></span> 已有账号</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <ul class="am-list admin-sidebar-list">
+        <li><a href="admin-index.html"><span class="am-icon-home"></span> 首页</a></li>
+      
+        <li><a href="admin-table.html"><span class="am-icon-table"></span> 商铺列表</a></li>
+
+      </ul>
+
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd">
+          <p><span class="am-icon-bookmark"></span> 公告</p>
+          <p>华发商都，感谢您的光临。—— Amaze UI</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">注册用户</strong> / <small>Registration information</small></div>
+    </div>
+
+    <hr/>
+
+    <div class="am-g">
+
+      <div class="am-u-sm-12 am-u-md-4 am-u-md-push-8">
+           
+        
+        <!--    
+       <figure data-am-widget="figure" class="am am-figure am-figure-default "data-am-figure="{  pureview: 'true' }">
+        <img src="assets/i/examples/js_r6_c7.jpg" data-rel="assets/i/examples/js_r6_c7.jpg"alt="华发商都欢迎您" />
+       </figure>
+       -->
+            
+        
+       
+      </div>
+
+      <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
+        <form class="am-form am-form-horizontal" action="__SELF__" method="post" data-am-validator>
+        
+          <div class="am-form-group">
+            <label for="doc-vld-name-2" class="am-u-sm-3 am-form-label">昵称 / Username</label>
+            <div class="am-u-sm-9">
+              <input type="text" id="doc-vld-name-2" placeholder="输入你的昵称" name="username" minlength="3" required />
+              <small>请输入昵称,温馨提示：至少3个字符。</small>
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <label for="user-email" class="am-u-sm-3 am-form-label">电子邮件 / Email</label>
+            <div class="am-u-sm-9">
+              <input type="email" id="user-email" placeholder="输入你的电子邮件" name="email" required />
+              <small></small>
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <label for="doc-vld-pwd-1" class="am-u-sm-3 am-form-label">密码 / Passworld</label>
+            <div class="am-u-sm-9">
+              <input type="password" id="doc-vld-pwd-1" placeholder="请输入你的密码"  pattern="^[\w\W]{6,}$" name="password" required />
+              <small>温馨提示：密码至少6个字符。</small>
+            </div>
+          </div>
+
+			<div class="am-form-group">
+            <label for="doc-vld-pwd-2" class="am-u-sm-3 am-form-label">确认密码 / Confirm</label>
+            <div class="am-u-sm-9">
+              <input type="password" id="doc-vld-pwd-2" placeholder="请重新输入确认密码"  pattern="^[\w\W]{6,}$" data-equal-to="#doc-vld-pwd-1" name="password0" required />
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <div class="am-u-sm-9 am-u-sm-push-3">
+              <button type="submit" class="am-btn am-btn-primary">注册</button>
+              <div id="loginInfo"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- content end -->
+
+</div>
+
+<a class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<footer>
+  <hr>
+  <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__ROOT__/Common/assets/js/polyfill/rem.min.js"></script>
+<script src="__ROOT__/Common/assets/js/polyfill/respond.min.js"></script>
+<script src="__ROOT__/Common/assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__ROOT__/Common/assets/js/jquery.min.js"></script>
+<script src="__ROOT__/Common/assets/js/amazeui.min.js"></script>
+<!--<![endif]-->
+<script src="__ROOT__/Common/assets/js/app.js"></script>
+<script type="text/javascript">
+/*
+	$("form").submit(function(){
+		var self = $(this);
+		$.post(self.attr("action"), self.serialize(), function (response, status, xhr) {
+			$('#loginInfo').html(response.info);
+			if(response.status){
+				window.location.href = response.url;
+			}
+		}, 'json');
+		return false;
+	});
+	*/
+</script>
+</body>
+</html>

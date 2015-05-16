@@ -1,0 +1,63 @@
+<extend name="Public/base"/>
+
+<block name="title">评论管理</block>
+
+<block name="head0">评论管理</block>
+<block name="head1"></block>
+
+<block name="body">
+<form class="am-form" action="__SELF__" method="post" enctype="multipart/form-data" style="float:left;width:60%" />
+
+		<div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right">
+              <strong>说明</strong>
+            </div>
+            <div class="am-u-sm-8">
+              本系统采用的评论模块采用<strong>多说评论</strong>系统，请先到<a href="http://duoshuo.com">多说评论官网</a>完成注册，再配置以下信息。
+            </div>
+            <div class="am-u-sm-0"></div>
+          </div>
+
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right">
+              密钥
+            </div>
+            <div class="am-u-sm-8">
+              <input type="text" class="am-input-sm" name="key" value="{$comment.key}">
+            </div>
+            <div class="am-u-sm-6"></div>
+          </div>
+
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right">
+              JS代码
+            </div>
+            <div class="am-u-sm-8 am-u-end">
+             <textarea name="code" rows="10">{$comment.code}</textarea>
+            </div>
+          </div>
+			
+			
+          
+          <div class="am-g am-margin-top">
+          <div class="am-u-sm-2 am-text-right">
+             &nbsp;
+            </div>
+          <div class="am-margin" style="float:left;">
+			<input type="submit" class="am-btn am-btn-success" value="提交保存">
+		  </div>
+		  
+		  <div class="am-margin" style="float:left;">
+			<input type="reset" class="am-btn am-btn-secondary" value="重置表单">
+		  </div>
+		  
+		 
+		  
+		  </div>
+		  
+
+        </form>
+
+
+
+</block>

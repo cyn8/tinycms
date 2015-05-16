@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<meta http-equiv="Cache-Control" content="no-transform"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=2.0, user-scalable=1"> -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="layoutmode" content="standard">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="renderer" content="webkit">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="no-transform"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=2.0, user-scalable=1"> -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="layoutmode" content="standard">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="renderer" content="webkit">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css">
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 00px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+h6 {
+	font-size:12px !important;
+}
+.logo {
+	height:80px;
+	width:80px;
+}
+h6 {
+	font-size:12px !important;
+}
+.star {
+	color:#DAA520 !important;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+<title>商铺列表 | {$result0.title}</title>
+</head>
+<body>
+
+<div data-role="page" id="pageone" data-theme="c">
+
+
+        
+  <div data-role="header" data-theme="c"  >
+     <a href="{:U('index')}" data-role="button" data-icon="home" data-ajax="false">主页</a>
+    <h1>商铺列表</h1>
+     <a href="#" data-role="button" data-icon="arrow-r" data-iconpos="right">下一页</a>
+  </div>
+
+  
+  <div data-role="content" data-theme="c">
+   
+   <div data-role="navbar">
+      <ul>
+        <li><a href="{:U('index')}" data-icon="star" data-ajax="false">主页</a></li>
+        <li><a href="{:U('Index/map')}" data-icon="info" data-corners="true" data-ajax="false">登录</a></li>
+
+      </ul>
+    </div>
+
+    <ul data-role="listview" data-inset="true">
+      
+      <foreach name="result" item="value" key="key">
+      <li>
+        <a href="Article/id/{$value.id}" data-transition="flip" data-ajax="false">
+        <img class="logo" src="__ROOT__/public/{$value.logo}">
+        <h2>{$value.shopname}</h2>
+        
+        <p>{$value.introduce}</p>
+        <p><strong>用户评价：<span class="star">★★★★☆</span></strong></p>
+        </a>
+        <!--a href="#" data-rel="" data-transition=""></a-->
+      </li>  
+      </foreach>    
+    </ul>
+
+  </div>
+
+  <!--div data-role="footer" data-theme="c" data-position="fixed" data-fullscreen="true">
+
+    <form method="get" action="{:U('shoplist')}" data-ajax="false">
+      <div data-role="fieldcontain">
+        <!--label for="search">商铺搜索：</label-->
+        <!--input type="search" name="shopname" id="search" placeholder="请输入搜索内容...">
+        
+      </div>
+      <input type="submit" data-inline="true" value="提交">
+    </form> 
+  </div-->
+	
+	<div data-role="footer" data-theme="{$result0.theme_f}">
+    <h6>{$result0.footer1}</h6>
+    <h6>{$result0.footer2}</h6>
+  </div>
+
+</div> 
+
+</body>
+</html>

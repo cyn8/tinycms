@@ -1,0 +1,143 @@
+<extend name="Public/base"/>
+
+<block name="title">微信接口管理</block>
+
+<block name="head0">接口配置</block>
+<block name="head1"></block>
+
+<block name="body">
+<div class="admin-content">
+
+
+  <div class="am-tabs am-margin" data-am-tabs>
+  
+    <ul class="am-tabs-nav am-nav am-nav-tabs">
+    
+      <li class="am-active"><a href="#tab1">接口配置</a></li>
+	  
+      <li><a href="#tab2">优惠推送</a></li>
+	  
+    </ul>
+
+    <div class="am-tabs-bd">
+
+
+      <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+        
+		<form class="am-form" action="__SELF__" method="post">
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-1 am-text-right">
+              Token
+            </div>
+           <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+              <input type="text" class="am-input-sm" value="{$result.token}" name="token">
+            </div>
+            <!--div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div-->
+          </div>
+
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-1 am-text-right">
+              appID
+            </div>
+			
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+              <input type="text" class="am-input-sm" value="{$result.appid}" name="appid">
+            </div>
+			
+          </div>
+
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-1 am-text-right">
+              appsecret
+            </div>
+			
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+              <input type="text" class="am-input-sm" value="{$result.appsecret}" name="appsecret">
+            </div>
+			
+		  </div>
+		  
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-1 am-text-right">
+              网站域名
+            </div>
+			
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+              <input type="text" class="am-input-sm" value="{$result.url}" name="url">
+            </div>
+
+          </div>
+          
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-1 am-text-right">
+              接口URL
+            </div>
+			
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+              <input type="text" class="am-input-sm" disabled="disabled" value="{$result.url}<?php echo '/index.php/wechat';?>">
+            </div>
+
+          </div>
+          
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-1 am-text-right">
+              <strong>配置说明</strong>
+            </div>
+			
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+             appID与appsecret可在微信公众号后台获取，并请保证以上填写的Token与微信公众号后台Token一致。<br/>网站域名填写格式：http://www.baidu.com<br/>提交保存后，可将生成接口URL填入微信公众号后台。至此，微信接口配置成功。
+            </div>
+			
+          </div>
+          
+          
+		  
+		  <div class="am-g am-margin-top">
+		  <div class="am-u-sm-1 am-text-right">
+             &nbsp;
+            </div>
+		    <div class="am-margin">
+            <button type="button" class="am-btn am-btn-success" onclick="javascript:window.location.href='/index.php/wechat/menu'"> &nbsp初始化公众号自定义菜单 &nbsp</button>
+           </div>
+           </div>
+		  
+		  <div class="am-g am-margin-top">
+		  <div class="am-u-sm-1 am-text-right">
+             &nbsp;
+            </div>
+		   <div class="am-margin">
+            <button type="input" class="am-btn am-btn-primary"> &nbsp提交保存 &nbsp</button>
+            <button type="reset" class="am-btn am-btn-primary">  &nbsp &nbsp &nbsp重置 &nbsp  &nbsp &nbsp</button>
+           </div>
+           </div>
+
+        </form>
+		
+      </div>
+
+      <div class="am-tab-panel am-fade" id="tab2">
+	  
+        <form class="am-form" action="__SELF__" method="post">
+
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-2 am-text-right">
+              优惠信息（支持a标签）
+            </div>
+            <div class="am-u-sm-8 am-u-end">
+             <textarea name="pushtxt" rows="10">{$result.pushtxt}</textarea>
+            </div>
+          </div>
+		  
+		   <div class="am-margin">
+            <button type="input" class="am-btn am-btn-primary">提交保存</button>
+           </div>
+		  
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+ 
+</div>
+</block>

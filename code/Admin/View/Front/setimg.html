@@ -1,0 +1,82 @@
+<extend name="Public/base"/>
+
+<block name="title">首页图片设置</block>
+
+<block name="head0">前台管理</block>
+<block name="head1">首页图片设置</block>
+
+<block name="body">
+<form class="am-form" action="__SELF__" method="post" enctype="multipart/form-data">
+          <table class="am-table">
+          <tr>
+            <td><div class="am-margin"><strong>图片轮换框标题</strong></div></td>
+            <td><div class="am-margin"><input type="text" name="img_title" value="{$result.img_title}"/></div></td>
+			</tr>
+          
+          
+			<tr>
+            <td><div class="am-margin"><strong>图片一</strong><br><br>上传图片<input class="am-btn am-btn-secondary" type="file" name="img1" class="btn btn-success" id="img1" style="width:100%"/><br>说明文字<input type="text" name="img1_info" value="{$result.img1_info}"><br><br></div></td>
+            <td><div class="am-margin" id="img11"><img src="__ROOT__/public/{$result.img1}"  alt="图片一" class="am-img-thumbnail" /></div></td>
+			</tr>
+			
+			<tr>
+            <td><div class="am-margin"><strong>图片二</strong><br><br>上传图片<input class="am-btn am-btn-secondary" type="file" name="img2" class="btn btn-success" id="img2" style="width:100%"/><br>说明文字<input type="text" name="img2_info" value="{$result.img2_info}"><br><br></div></td>
+            <td><div class="am-margin" id="img22"><img src="__ROOT__/public/{$result.img2}"  alt="图片二" class="am-img-thumbnail" /></div></td>
+			</tr>
+			
+			<tr>
+            <td><div class="am-margin"><strong>图片三</strong><br><br>上传图片<input class="am-btn am-btn-secondary" type="file" name="img3" class="btn btn-success" id="img3" style="width:100%"/><br>说明文字<input type="text" name="img3_info" value="{$result.img3_info}"><br><br></div></td>
+            <td><div class="am-margin" id="img33"><img src="__ROOT__/public/{$result.img3}"  alt="图片三" class="am-img-thumbnail" /></div></td>
+			</tr>
+			
+			<tr>
+            <td><div class="am-margin"><strong>图片四</strong><br><br>上传图片<input class="am-btn am-btn-secondary" type="file" name="img4" class="btn btn-success" id="img4" style="width:100%"/><br>说明文字<input type="text" name="img4_info" value="{$result.img4_info}"><br><br></div></div></td>
+            <td><div class="am-margin" id="img44"><img src="__ROOT__/public/{$result.img4}"  alt="图片四" class="am-img-thumbnail" /></div></td>
+			</tr>
+			
+			
+
+          </table>
+          
+          
+          
+          <div class="am-margin" style="float:left;">
+			<input type="submit" class="am-btn am-btn-success" value="提交保存">
+		  </div>
+		  
+		  <div class="am-margin" style="float:left;">
+			<input type="reset" class="am-btn am-btn-secondary" value="重置表单">
+		  </div>
+		  
+		 
+		  
+		  
+		  
+
+        </form>
+</block>
+
+<block name="js">
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $("#img1").click(function(){
+	$("#img11").slideUp("slow");
+  });
+  $("#img2").click(function(){
+	$("#img22").slideUp("slow");
+  });
+  $("#img3").click(function(){
+	$("#img33").slideUp("slow");
+  });
+  $("#img4").click(function(){
+	$("#img44").slideUp("slow");
+  });
+  $("#simg").click(function(){
+	$("#simg1").slideUp("slow");
+  });
+  
+});
+</script>
+
+</block>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="__ROOT__/Common/assets/css/amazeui.min.css"/>
+<link rel="stylesheet" href="__ROOT__/Common/assets/css/admin.css">
+</head>
+<body>
+<form action="__SELF__" method="post">
+    <textarea name="file_contents" style="width:900px;height:600px;"><?php
+        $file = './Home/View/Index/'.$fileName.'.html';
+        $handle = fopen($file, "r");
+        while (!feof($handle)){
+            $text = fgets($handle);
+            echo $text;
+        }
+        ?></textarea>
+<input type="hidden" value="{$fileName}" name="fileName" />
+<br><br>
+<input type="submit" class="am-btn am-btn-primary" value="提交保存" >
+</form>
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__ROOT__/Common/assets/js/polyfill/rem.min.js"></script>
+<script src="__ROOT__/Common/assets/js/polyfill/respond.min.js"></script>
+<script src="__ROOT__/Common/assets/js/amazeui.legacy.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__ROOT__/Common/assets/js/jquery.min.js"></script>
+<script src="__ROOT__/Common/assets/js/amazeui.min.js"></script>
+<!--<![endif]-->
+<script src="__ROOT__/Common/assets/js/app.js"></script>
+</body>
+</html>
